@@ -1,0 +1,27 @@
+kind = "mobile"
+previewPath = "/"
+title = "NutriScan"
+version = "1.0.0"
+id = "artifacts/nutriscan"
+router = "expo-domain"
+
+[[integratedSkills]]
+name = "expo"
+version = "1.0.0"
+
+[[services]]
+ensurePreviewReachable = "/status"
+name = "expo"
+paths = [ "/" ]
+localPort = 25437
+
+[services.development]
+run = "pnpm --filter @workspace/nutriscan run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/nutriscan", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/nutriscan", "run", "serve" ]
+
+[services.env]
+PORT = "25437"
+BASE_PATH = "/"
