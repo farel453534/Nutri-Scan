@@ -24,8 +24,12 @@ function NativeTabLayout() {
         <Icon sf={{ default: "barcode.viewfinder", selected: "barcode.viewfinder" }} />
         <Label>Scanner</Label>
       </NativeTabs.Trigger>
+      <NativeTabs.Trigger name="calendar">
+        <Icon sf={{ default: "calendar", selected: "calendar.fill" }} />
+        <Label>Calendrier</Label>
+      </NativeTabs.Trigger>
       <NativeTabs.Trigger name="journal">
-        <Icon sf={{ default: "book", selected: "book.fill" }} />
+        <Icon sf={{ default: "list.bullet", selected: "list.bullet" }} />
         <Label>Journal</Label>
       </NativeTabs.Trigger>
     </NativeTabs>
@@ -95,14 +99,26 @@ function ClassicTabLayout() {
         }}
       />
       <Tabs.Screen
+        name="calendar"
+        options={{
+          title: "Calendrier",
+          tabBarIcon: ({ color }) =>
+            isIOS ? (
+              <SymbolView name="calendar" tintColor={color} size={22} />
+            ) : (
+              <Feather name="calendar" size={22} color={color} />
+            ),
+        }}
+      />
+      <Tabs.Screen
         name="journal"
         options={{
           title: "Journal",
           tabBarIcon: ({ color }) =>
             isIOS ? (
-              <SymbolView name="book.fill" tintColor={color} size={22} />
+              <SymbolView name="list.bullet" tintColor={color} size={22} />
             ) : (
-              <Feather name="book" size={22} color={color} />
+              <Feather name="list" size={22} color={color} />
             ),
         }}
       />

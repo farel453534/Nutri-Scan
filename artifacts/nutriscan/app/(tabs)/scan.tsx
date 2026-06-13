@@ -115,14 +115,14 @@ function FoodDetailModal({
           </View>
 
           <View style={styles.macroRow}>
-            <MacroPill label="Prot" value={`${prot}g`} color="#3b82f6" />
-            <MacroPill label="Glu" value={`${carbs}g`} color="#f59e0b" />
-            <MacroPill label="Lip" value={`${fat}g`} color="#ef4444" />
+            <MacroPill label="Prot" value={`${prot}g`} color={colors.macroProtein} />
+            <MacroPill label="Glu" value={`${carbs}g`} color={colors.macroCarbs} />
+            <MacroPill label="Lip" value={`${fat}g`} color={colors.macroFat} />
             {food.fiberPer100g != null && (
               <MacroPill
                 label="Fibres"
                 value={`${Math.round(food.fiberPer100g * factor * 10) / 10}g`}
-                color="#8b5cf6"
+                color={colors.mutedForeground}
               />
             )}
           </View>

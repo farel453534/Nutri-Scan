@@ -166,19 +166,19 @@ export default function DashboardScreen() {
               label="Protéines"
               current={totals.protein}
               goal={goals.protein}
-              color="#3b82f6"
+              color={colors.macroProtein}
             />
             <MacroBar
               label="Glucides"
               current={totals.carbs}
               goal={goals.carbs}
-              color="#f59e0b"
+              color={colors.macroCarbs}
             />
             <MacroBar
               label="Lipides"
               current={totals.fat}
               goal={goals.fat}
-              color="#ef4444"
+              color={colors.macroFat}
             />
           </View>
         </View>
