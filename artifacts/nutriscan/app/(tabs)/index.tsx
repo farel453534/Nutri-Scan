@@ -136,7 +136,7 @@ export default function DashboardScreen() {
       showsVerticalScrollIndicator={false}
     >
       <View style={[styles.header, { paddingTop: topPad }]}>
-        <View>
+        <View style={{ flex: 1 }}>
           <Text style={[styles.greeting, { color: colors.foreground }]}>
             {formatDate(today)}
           </Text>
@@ -144,15 +144,26 @@ export default function DashboardScreen() {
             Suivi nutritionnel
           </Text>
         </View>
-        <Pressable
-          style={[styles.addBtn, { backgroundColor: colors.primary }]}
-          onPress={() => {
-            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-            router.push("/(tabs)/scan");
-          }}
-        >
-          <Ionicons name="add" size={22} color={colors.primaryForeground} />
-        </Pressable>
+        <View style={styles.headerActions}>
+          <Pressable
+            style={[styles.iconBtn, { backgroundColor: colors.secondary, borderColor: colors.border }]}
+            onPress={() => {
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              router.push("/profile");
+            }}
+          >
+            <Ionicons name="person-outline" size={18} color={colors.foreground} />
+          </Pressable>
+          <Pressable
+            style={[styles.addBtn, { backgroundColor: colors.primary }]}
+            onPress={() => {
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              router.push("/(tabs)/scan");
+            }}
+          >
+            <Ionicons name="add" size={22} color={colors.primaryForeground} />
+          </Pressable>
+        </View>
       </View>
 
       <Animated.View
@@ -276,6 +287,19 @@ const styles = StyleSheet.create({
   },
   greeting: { fontSize: 24, fontFamily: "Inter_700Bold", letterSpacing: -0.5 },
   subGreeting: { fontSize: 13, fontFamily: "Inter_400Regular", marginTop: 2 },
+  headerActions: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+  },
+  iconBtn: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    borderWidth: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   addBtn: {
     width: 40,
     height: 40,
