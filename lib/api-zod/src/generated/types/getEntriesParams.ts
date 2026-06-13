@@ -6,6 +6,9 @@
  * OpenAPI spec version: 0.1.0
  */
 
-export interface HealthStatus {
-  status: string;
-}
+export type GetEntriesParams = {
+/**
+ * Filter by date (YYYY-MM-DD)
+ */
+date?: string;
+};
